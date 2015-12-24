@@ -14,7 +14,7 @@ describe('income tax', () => {
     };
     let tax = japan_income_tax(data);
 
-    expect(tax).toEqual(210500);
+    expect(tax).toEqual(214900);
   });
 
   it('should calculate tax with deduction', () => {
@@ -26,7 +26,7 @@ describe('income tax', () => {
     };
     let tax = japan_income_tax(data);
 
-    expect(tax).toEqual(172500);
+    expect(tax).toEqual(176100);
   });
 
 });
