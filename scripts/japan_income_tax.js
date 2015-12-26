@@ -48,7 +48,7 @@ export function japan_income_tax(data) {
 /**
  * 所得税控除額
  */
-function income_tax_deduction(data) {
+export function income_tax_deduction(data) {
   return (data["spouse"] ? 380000 : 0) // 配偶者控除
     + data["children16"] * 380000   // 一般の控除対象扶養親族
     + (data["children19"] * 630000)   // 特定扶養親族
@@ -102,13 +102,13 @@ function resident_tax_deduction(data) {
 
 
 /**
- * 給与所得控除
+ * 給与所得控除後の所得
  *
  * https://www.nta.go.jp/taxanswer/shotoku/1410.htm
  *
  * @param income 給与
  */
-function payroll_deduction(income) {
+export function payroll_deduction(income) {
   let deducted;
 
   if (income < 651000) {
@@ -141,11 +141,11 @@ function payroll_deduction(income) {
   } else if (income < 10000000) {
     deducted = income * 0.9 - 1200000;
 
-  } else if (income < 10000000) {
+  } else if (income < 15000000) {
     deducted = income * 0.95 - 1700000;
 
   } else {
-    deducted = 2450000;
+    deducted = income - 2450000;
   }
 
   return deducted;

@@ -1,7 +1,6 @@
-//jest.dontMock('../japan_income_tax');
 jest.autoMockOff();
 
-let { japan_income_tax, income_tax_deduction } = require('../japan_income_tax.js');
+let { japan_resident_tax } = require('../japan_income_tax.js');
 
 describe('income', () => {
 
@@ -12,9 +11,9 @@ describe('income', () => {
       children16: 0,
       children19: 0
     };
+    let tax = japan_resident_tax(data);
 
-    expect(income_tax_deduction(data)).toEqual(380000);
-    expect(japan_income_tax(data)).toEqual(214900);
+    expect(tax).toEqual(315500);
   });
 
   it('should calculate tax from 10 mil', () => {
@@ -24,9 +23,9 @@ describe('income', () => {
       children16: 0,
       children19: 0
     };
+    let tax = japan_resident_tax(data);
 
-    expect(income_tax_deduction(data)).toEqual(380000);
-    expect(japan_income_tax(data)).toEqual(1093000);
+    expect(tax).toEqual(749500);
   });
 
 });
@@ -39,9 +38,8 @@ describe('spouse', () => {
       children16: 0,
       children19: 0
     };
-    let tax = japan_income_tax(data);
+    let tax = japan_resident_tax(data);
 
-    expect(tax).toEqual(176100);
+    expect(tax).toEqual(282500);
   });
-
 });
