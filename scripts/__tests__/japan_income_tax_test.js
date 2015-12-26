@@ -10,7 +10,8 @@ describe('income', () => {
       income: 5000000,
       spouse: false,
       children16: 0,
-      children19: 0
+      children19: 0,
+      children23: 0
     };
 
     expect(income_tax_deduction(data)).toEqual(380000);
@@ -22,7 +23,8 @@ describe('income', () => {
       income: 10000000,
       spouse: false,
       children16: 0,
-      children19: 0
+      children19: 0,
+      children23: 0
     };
 
     expect(income_tax_deduction(data)).toEqual(380000);
@@ -37,11 +39,26 @@ describe('spouse', () => {
       income: 5000000,
       spouse: true,
       children16: 0,
-      children19: 0
+      children19: 0,
+      children23: 0
     };
     let tax = japan_income_tax(data);
 
     expect(tax).toEqual(176100);
   });
 
+});
+
+describe('child23', () => {
+  it('should calculate tax with 1 children23', () => {
+    let data = {
+      income: 5000000,
+      spouse: false,
+      children16: 0,
+      children19: 0,
+      children23: 1
+    };
+
+    expect(japan_income_tax(data)).toEqual(176100);
+  });
 });

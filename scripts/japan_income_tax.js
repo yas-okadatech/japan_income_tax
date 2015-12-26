@@ -50,8 +50,9 @@ export function japan_income_tax(data) {
  */
 export function income_tax_deduction(data) {
   return (data["spouse"] ? 380000 : 0) // 配偶者控除
-    + data["children16"] * 380000   // 一般の控除対象扶養親族
-    + (data["children19"] * 630000)   // 特定扶養親族
+    + (data["children16"] ? data["children16"] * 380000 : 0)   // 一般の控除対象扶養親族
+    + (data["children19"] ? data["children19"] * 630000 : 0)   // 特定扶養親族
+    + (data["children23"] ? data["children23"] * 380000 : 0)   // 一般の控除対象扶養親族
     + 380000;   // 基礎控除
 }
 
@@ -95,8 +96,9 @@ export function japan_resident_tax(data) {
  */
 function resident_tax_deduction(data) {
   return (data["spouse"] ? 330000 : 0) // 配偶者控除
-    + data["children16"] * 330000   // 扶養控除
-    + (data["children19"] * 450000)   // 扶養控除
+    + (data["children16"] ? data["children16"] * 330000 : 0)   // 扶養控除
+    + (data["children19"] ? data["children19"] * 450000 : 0)   // 扶養控除
+    + (data["children23"] ? data["children23"] * 330000 : 0)   // 扶養控除
     + 330000;   // 基礎控除
 }
 
