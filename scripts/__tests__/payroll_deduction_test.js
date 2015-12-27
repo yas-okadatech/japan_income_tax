@@ -1,6 +1,6 @@
 jest.autoMockOff();
 
-let { payroll_deduction } = require('../japan_income_tax.js');
+let { payroll_deduction } = require('../payroll_deduction.js');
 
 describe('payroll_deduction', () => {
 

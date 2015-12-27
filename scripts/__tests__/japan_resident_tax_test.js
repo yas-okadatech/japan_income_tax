@@ -60,3 +60,16 @@ describe('child23', () => {
     expect(japan_resident_tax(data)).toEqual(282500);
   });
 });
+
+
+describe('medical_expenses', () => {
+  it('should calculate tax with medical_expenses', () => {
+    let data = {
+      income: 5000000,
+      medical_expenses: 120000
+    };
+
+    expect(japan_resident_tax(data)).toEqual(313500);
+  });
+});
+

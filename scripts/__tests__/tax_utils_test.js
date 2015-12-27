@@ -2,7 +2,7 @@ jest.autoMockOff();
 
 
 describe ('floor1000', () => {
-  let { floor1000 } = require('../japan_income_tax.js');
+  let { floor1000 } = require('../tax_utils.js');
 
   it('should calculate', () => {
 
@@ -17,7 +17,7 @@ describe ('floor1000', () => {
 });
 
 describe ('floor100', () => {
-  let { floor100 } = require('../japan_income_tax.js');
+  let { floor100 } = require('../tax_utils.js');
 
   it('should calculate', () => {
 
