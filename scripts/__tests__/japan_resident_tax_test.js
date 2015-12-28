@@ -17,6 +17,19 @@ describe('income', () => {
     expect(tax).toEqual(315500);
   });
 
+  it('should calculate tax from  mil', () => {
+    let data = {
+      income: 3000000,
+      spouse: false,
+      children16: 0,
+      children19: 0,
+      children23: 0
+    };
+    let tax = japan_resident_tax(data);
+
+    expect(tax).toEqual(161500);
+  });
+
   it('should calculate tax from 10 mil', () => {
     let data = {
       income: 10000000,

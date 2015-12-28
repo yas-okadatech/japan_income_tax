@@ -18,6 +18,19 @@ describe('income', () => {
     expect(japan_income_tax(data)).toEqual(214900);
   });
 
+  it('should calculate tax from 3 mil', () => {
+    let data = {
+      income: 3000000,
+      spouse: false,
+      children16: 0,
+      children19: 0,
+      children23: 0
+    };
+
+    expect(income_tax_deduction(data)).toEqual(380000);
+    expect(japan_income_tax(data)).toEqual(78600);
+  });
+
   it('should calculate tax from 10 mil', () => {
     let data = {
       income: 10000000,
